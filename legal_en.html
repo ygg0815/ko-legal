@@ -75,7 +75,7 @@
       <tr><th>Data</th><th>Where it goes</th><th>Collected by us?</th></tr>
       <tr><td>Learning progress, streak, XP, saved words, settings</td><td>Stored locally on your device (Apple UserDefaults)</td><td>No</td></tr>
       <tr><td>Text you type in the search field</td><td>Used only on your device to filter the built-in word list; never transmitted</td><td>No</td></tr>
-      <tr><td>Audio playback</td><td>Generated on your device by the system speech synthesiser. No recording is made or uploaded</td><td>No</td></tr>
+      <tr><td>Audio playback</td><td>Synthesised audio bundled with the app and played on your device; syllables assembled on the fly in the builder fall back to the device's system voice. No recording is made or uploaded</td><td>No</td></tr>
       <tr><td>Microphone / camera / photos / contacts / location</td><td>The app does not request or use any of these</td><td>No</td></tr>
       <tr><td>Purchase status</td><td>Handled entirely by Apple’s StoreKit. We never see your name, card or Apple ID</td><td>No</td></tr>
     </table>
@@ -162,15 +162,20 @@
     <p>All 240 vocabulary entries, 48 phrases, 8 pronunciation-rule explanations, every example sentence and every
     translation in this app were written specifically for this course. They were not copied or adapted from any
     dictionary, textbook, exam word list, drama subtitle or song lyric. The word “Hangul” refers to the Korean
-    alphabet and is a generic term.</p>
+    alphabet and is a generic term. The graded vocabulary module (200 words in three bands) was written the same
+    way: every headword, definition, example sentence, translation and audio clip is ours, not copied from any
+    dictionary or textbook. Its bands are our own study order, not an exam's official word list — see section 6.</p>
 
     <h3>2. What is not copyrightable</h3>
     <p>The 40 Hangul letters, the rules for combining them into syllable blocks, and the standard romanisation
     system are facts and systems, not creative works. Using them is not a copyright issue.</p>
 
     <h3>3. Audio</h3>
-    <p>Pronunciation is generated on your device by Apple’s speech synthesiser using the Korean system voice.
-    The app ships with no recorded audio files, no voice-actor recordings and no licensed pronunciation clips.</p>
+    <p>Pronunciation audio is synthesised speech bundled with the app, pre-generated with the Microsoft Azure neural
+    speech service and played locally without a network connection. It is not human speech, so no recording rights
+    or voice-likeness rights are involved. Syllables assembled on the fly in the syllable builder have no
+    pre-generated file and fall back to the built-in Korean system voice on your device. The app contains no
+    voice-actor recordings and no third-party licensed pronunciation clips.</p>
 
     <h3>4. Visual assets</h3>
     <p>The app icon and all interface colours and layouts were created for this project. Icons are Apple
@@ -179,10 +184,22 @@
 
     <h3>5. No affiliation</h3>
     <p>Hangul &amp; Words is not affiliated with, endorsed by or sponsored by any language institute, university,
-    examination board, broadcaster or entertainment company. No exam name, brand name, song title, drama title or
-    celebrity name is used inside the app.</p>
+    examination board, broadcaster or entertainment company. No exam name is used as a product name or in marketing
+    copy; where an exam is referred to at all, it is factual only — we imply no official connection and make no
+    promise about exam results. No brand name, song title, drama title or celebrity name is used inside the app.</p>
 
-    <h3>6. Reporting a concern</h3>
+    <h3>6. The graded vocabulary</h3>
+    <p>The graded vocabulary module contains 200 common Korean words in three bands (beginner / intermediate /
+    advanced). Every headword, definition, example sentence, translation and audio clip was written or generated
+    for this app. Nothing in it is copied or adapted from a dictionary, a textbook or an exam word list.</p>
+    <p>The three bands are <strong>our own study order</strong>, arranged to give a sensible progression from
+    everyday words to more abstract ones. They are <strong>not an official TOPIK vocabulary list</strong>. TOPIK's
+    administrator, NIIED, has never published a graded official vocabulary list. This app is not affiliated with,
+    sponsored by or endorsed by NIIED or any exam body.</p>
+    <p>If we later expand the module using a publicly licensed word list, we will verify the licence first and
+    credit the source on this page and inside the app.</p>
+
+    <h3>7. Reporting a concern</h3>
     <p>If you believe something in the app infringes your rights, write to
     <a href="mailto:2603462296@qq.com">2603462296@qq.com</a> with the details. We will review it and, where
     appropriate, remove the material in the next update.</p>
