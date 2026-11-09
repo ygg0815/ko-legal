@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hangul &amp; Words — Support</title>
+<style>
+  :root { --ink:#211f1b; --sub:#6b675f; --bg:#f7f5ef; --card:#fff; --line:#e6e2d8; --accent:#0e6b5c; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.7 -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+         -webkit-text-size-adjust:100%; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 72px; }
+  header { display:flex; align-items:center; gap:12px; margin-bottom: 8px; }
+  .logo { width:44px; height:44px; border-radius:12px; background:var(--accent); color:#f7f5ef;
+          display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:700;
+          flex:0 0 auto; }
+  h1 { font-size: 26px; margin: 6px 0 2px; letter-spacing:-0.02em; }
+  .meta { color: var(--sub); font-size: 13px; }
+  .langs { display:flex; gap:6px; margin: 18px 0 22px; }
+  .langs button { font:inherit; font-size:13px; padding:7px 14px; border-radius:999px; cursor:pointer;
+                  background:var(--card); border:1px solid var(--line); color:var(--sub); }
+  .langs button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:#f7f5ef; }
+  section { background: var(--card); border:1px solid var(--line); border-radius:18px;
+            padding: 22px 22px 14px; margin-bottom: 18px; }
+  h2 { font-size: 20px; margin: 4px 0 12px; }
+  h3 { font-size: 15px; margin: 20px 0 6px; color:var(--sub); font-weight:600;
+       text-transform:none; letter-spacing:0; }
+  p, li { color: #35322c; }
+  ul { padding-left: 20px; }
+  li { margin: 4px 0; }
+  details { border-top:1px solid var(--line); padding: 12px 0 4px; }
+  details > summary { cursor:pointer; font-weight:600; font-size:15px; list-style:none;
+                      display:flex; justify-content:space-between; gap:12px; }
+  details > summary::-webkit-details-marker { display:none; }
+  details > summary::after { content:"＋"; color:var(--sub); font-weight:400; }
+  details[open] > summary::after { content:"−"; }
+  details p, details ul { margin: 8px 0 6px; font-size:15px; }
+  .note { background:#f2f6f4; border-left:3px solid var(--accent); padding:12px 14px; border-radius:8px;
+          font-size:14px; color:#2c3a35; margin: 12px 0 18px; }
+  footer { color: var(--sub); font-size: 13px; text-align:center; margin-top: 26px; }
+  footer a { color: var(--accent); }
+  a { color: var(--accent); }
+  .lang { display:none; }
+  .lang.on { display:block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">한</div>
+    <div>
+      <h1>Hangul &amp; Words</h1>
+      <div class="meta" id="tagline">Learn Korean from zero · Support</div>
+    </div>
+  </header>
+
+  <div class="langs">
+    <button type="button" data-set="en" aria-pressed="true">English</button>
+    <button type="button" data-set="ja" aria-pressed="false">日本語</button>
+    <button type="button" data-set="zh" aria-pressed="false">繁體中文</button>
+  </div>
+
+  <!-- ═════════════════════════════ ENGLISH ═════════════════════════════ -->
+  <div class="lang on" data-lang="en">
+<section><h2>Learning tools and backups</h2><p>Open Learn → Practice for a study plan, listening playlists, spelling, word matching, speaking practice, placement checks and level tests. Me → Learning statistics provides 7/14/30/90-day views and progress sharing. A daily-word widget is also included.</p><p>Me → Settings → Backup and restore exports your progress and personal words to a private JSON file. Import validates the file and asks before replacement. Keep your backup private. Resetting progress does not delete your personal wordbook; delete those words separately in My Words.</p><p>Microphone access is needed only for recording. Recordings are temporary and deleted when you leave; offline text recognition is not a pronunciation grade. Recordings stay on the device.</p></section>
+
+    <section>
+      <h2>About the app</h2>
+      <p>Hangul &amp; Words is a self-contained Korean course for beginners. It teaches the alphabet
+      (Hangul), how syllables are assembled, the sound-change rules, 296 course words across 13
+      topics and 5,000 everyday expressions, with explanations in English, Japanese and Traditional Chinese.</p>
+      <ul>
+        <li><strong>Works offline.</strong> All lessons and pronunciation audio are built in — nothing is
+        downloaded or streamed.</li>
+        <li><strong>No account.</strong> Nothing to sign up for, nothing uploaded.</li>
+        <li><strong>No ads, no tracking.</strong> No advertising SDK and no analytics of any kind.</li>
+        <li><strong>Three interface languages.</strong> English, 日本語 and 繁體中文 — switchable at any time in
+        <em>Profile → Language</em>.</li>
+        <li><strong>Spaced repetition.</strong> Every word you meet comes back at the right moment
+        (1, 2, 4, 7, 15, 30 days).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Frequently asked questions</h2>
+
+      <details>
+        <summary>I paid before — how do I get Pro back?</summary>
+        <p>Open <em>Me → Settings → Restore purchases</em> and sign in with the same Apple ID you used for the
+        original purchase. Restoration is instant and free. If nothing happens, make sure the device is
+        online and that the Apple ID region matches the store you bought from.</p>
+      </details>
+
+      <details>
+        <summary>There is no sound.</summary>
+        <p>Bundled pronunciation clips play offline. New course words and phrases, and syllables you build
+        yourself, use the device’s Korean system voice.</p>
+        <ul>
+          <li>Turn the ringer/silent switch off silent, and raise the volume with the side buttons.</li>
+          <li><em>Settings → Sounds &amp; Haptics</em> — make sure media volume is not muted.</li>
+          <li>Disconnect Bluetooth headphones; audio may be routed to a device you are not wearing.</li>
+          <li>If only new course entries or the syllable builder are silent, install a Korean voice in the device’s accessibility settings.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>What is free and what needs Pro?</summary>
+        <p>Free study includes all 40 letters, sound rules, the syllable builder, two word themes, the greetings and dining requests sets, and 200 graded words. One Pro purchase unlocks every course, word and phrase. The app displays your local price before you confirm.</p>
+      </details>
+
+      <details>
+        <summary>Can I use the app without buying anything?</summary>
+        <p>Yes. The free part is a complete introduction to reading Hangul and is not time-limited. There is
+        no trial countdown on it and no nag screen before a lesson.</p>
+      </details>
+
+      <details>
+        <summary>How do I change the interface language?</summary>
+        <p><em>Profile → Language</em>, then pick English, 日本語 or 中文. The change is immediate — no
+        restart. The app also follows your system language the first time it launches.</p>
+      </details>
+
+      <details>
+        <summary>Is my progress backed up?</summary>
+        <p>Progress lives in the app's own storage on this device and is included in a normal iCloud or
+        Finder device backup. We run no server, so we cannot restore it for you. If you delete the app,
+        the progress stored with it is deleted too.</p>
+      </details>
+
+      <details>
+        <summary>How do I erase everything?</summary>
+        <p><em>Profile → Reset all progress</em>. This clears lessons, XP, streak, saved words and settings
+        on this device. It does not affect a Pro purchase — that stays with your Apple ID.</p>
+      </details>
+
+      <details>
+        <summary>Where does the content come from?</summary>
+        <p>Every word, example sentence, phrase and grammar note was written for this app. We do not copy
+        dictionary entries, textbook exercises, subtitles or lyrics. Icons are Apple SF Symbols and the app
+        icon was drawn by us. Pronunciation audio is machine-synthesised speech, generated with a neural voice
+        model and bundled with the app — it is not recorded from any person, so no voice rights are involved.
+        See the <a href="legal_en.html#content">content &amp; copyright notice</a>.</p>
+      </details>
+
+      <details>
+        <summary>I found a mistake, or a word I want added.</summary>
+        <p>Please email us with the screen name and, if you can, the word or sentence. Correction reports
+        are read first, and content updates ship with regular app updates.</p>
+      </details>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Email <a href="mailto:2603462296@qq.com">2603462296@qq.com</a>. We usually reply within two
+      business days. To help us help you, please include the app version
+      (<em>Profile → About</em>), your iOS version and device model.</p>
+      <div class="note">We are a very small studio and do not offer phone support. Email is the only
+      channel, and it reaches a real person.</div>
+    </section>
+
+    <footer>
+      <a href="legal_en.html">Privacy Policy &amp; Terms</a> ·
+      <a href="legal_en.html#content">Content &amp; Copyright</a>
+      <div style="margin-top:8px">© 2026 Ye Wei. Not affiliated with any language institute or publisher.</div>
+    </footer>
+  </div>
+
+  <!-- ═════════════════════════════ 日本語 ═════════════════════════════ -->
+  <div class="lang" data-lang="ja">
+<section><h2>学習ツールとバックアップ</h2><p>学習 → 練習から、学習プラン、リスニング、スペリング、マッチング、音読、実力チェックとレベルテストを利用できます。マイページ → 学習統計で7・14・30・90日間の統計と進捗の共有を利用できます。毎日の単語ウィジェットも利用できます。</p><p>マイページ → 設定 → バックアップと復元から、進捗と自分の単語を個人用JSONファイルに書き出せます。読み込み時は検証後、置き換え前に確認します。大切に保管してください。進捗リセットでは自分の単語は消えないので、単語帳から別途削除してください。</p><p>マイクは録音時だけ使用します。録音は画面を離れると削除します。文字の一致度は発音評価ではありません。録音は端末内に保存します。</p></section>
+
+    <section>
+      <h2>アプリについて</h2>
+      <p>「Hangul &amp; Words」は、初めてハングルを学ぶ人のための完結型韓国語入門アプリです。文字（ハングル）、
+      文字の組み合わせ方、発音変化のルール、13テーマ・296語のコース単語、5,000の日常表現を収録し、
+      解説は日本語・英語・中国語で読めます。</p>
+      <ul>
+        <li><strong>オフラインで使えます。</strong> レッスンも発音音声もすべてアプリ内に同梱されており、ダウンロードや通信は不要です。</li>
+        <li><strong>アカウント不要。</strong> 登録もログインもなく、データは外部に送信されません。</li>
+        <li><strong>広告なし・追跡なし。</strong> 広告 SDK も解析ツールも組み込んでいません。</li>
+        <li><strong>3 言語のインターフェース。</strong> 日本語／英語／中国語を
+        <em>プロフィール → 言語</em> でいつでも切り替えられます。</li>
+        <li><strong>間隔反復。</strong> 覚えた単語は 1・2・4・7・15・30 日の間隔で復習に出てきます。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>よくある質問</h2>
+
+      <details>
+        <summary>以前購入した Pro を復元したい。</summary>
+        <p><em>マイページ → 設定 → 購入を復元</em> を開き、購入時と同じ Apple ID でサインインしてください。
+        復元は無料です。反応がない場合は、通信環境と、購入したストアと Apple ID の地域が一致しているかを
+        ご確認ください。</p>
+      </details>
+
+      <details>
+        <summary>音が出ません。</summary>
+        <p>同梱の発音音声はオフラインで再生できます。追加の単語やフレーズ、組み立てた音節は端末の韓国語音声で読み上げます。</p>
+        <ul>
+          <li>本体側面の消音スイッチを解除し、音量を上げる。</li>
+          <li><em>設定 → サウンドと触覚</em> でメディア音量がミュートになっていないか確認する。</li>
+          <li>Bluetooth イヤホンを切断する（見えない機器に音声が送られている場合があります）。</li>
+          <li>追加の学習内容や文字の組み立て機能だけ音が出ない場合は、端末のアクセシビリティ設定で韓国語の音声をダウンロードしてください。</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>無料で使える範囲と Pro の違いは？</summary>
+        <p>ハングル40文字、発音ルール、音節ビルダー、単語の最初の2テーマ、あいさつと注文・食事のフレーズ集、レベル別単語200語は無料です。Proを一度購入すると、すべてのコース・単語・フレーズを利用できます。価格は購入前に表示されます。</p>
+      </details>
+
+      <details>
+        <summary>購入せずに使えますか？</summary>
+        <p>使えます。無料部分はハングルを読むための入門として完結しており、期限もありません。
+        期間のカウントダウンや、レッスン前の購入催促もありません。</p>
+      </details>
+
+      <details>
+        <summary>表示言語を変えるには？</summary>
+        <p><em>プロフィール → 言語</em> から日本語・英語・中国語を選べます。再起動は不要で、
+        その場で切り替わります。初回起動時は端末の言語に合わせて表示されます。</p>
+      </details>
+
+      <details>
+        <summary>学習の記録はバックアップされますか？</summary>
+        <p>記録はこの端末のアプリ内に保存され、iCloud または Finder の端末バックアップに含まれます。
+        サーバーを使っていないため、こちらから復元することはできません。アプリを削除すると記録も削除されます。</p>
+      </details>
+
+      <details>
+        <summary>記録をすべて消すには？</summary>
+        <p><em>プロフィール → 学習記録をリセット</em> を実行してください。レッスン、XP、連続日数、
+        保存した単語、設定がこの端末から消えます。Pro の購入は Apple ID に紐づくため影響ありません。</p>
+      </details>
+
+      <details>
+        <summary>コンテンツの出典は？</summary>
+        <p>単語・例文・フレーズ・文法メモはすべてこのアプリのために書き下ろしたものです。辞書の語義、
+        教材の練習問題、字幕、歌詞の転載は行っていません。アイコンは Apple の SF Symbols、
+        アプリアイコンは自作です。発音音声はニューラル音声合成で生成しアプリに同梱した合成音声であり、
+        人が録音したものではないため、音声に関する権利は関与しません。詳しくは
+        <a href="legal_ja.html#content">コンテンツと著作権について</a> をご覧ください。</p>
+      </details>
+
+      <details>
+        <summary>誤りを見つけました／単語を追加してほしい。</summary>
+        <p>画面名と、可能であれば該当の単語や例文を添えてメールでお知らせください。修正のご報告は
+        優先して確認し、コンテンツの更新は通常のアップデートで反映します。</p>
+      </details>
+    </section>
+
+    <section>
+      <h2>お問い合わせ</h2>
+      <p>メール：<a href="mailto:2603462296@qq.com">2603462296@qq.com</a>。通常 2 営業日以内に返信します。
+      アプリのバージョン（<em>プロフィール → このアプリについて</em>）、iOS のバージョン、機種名を
+      添えていただけると助かります。</p>
+      <div class="note">小規模な開発体制のため、電話でのサポートは行っていません。メールは担当者に直接届きます。</div>
+    </section>
+
+    <footer>
+      <a href="legal_ja.html">プライバシーポリシーと利用規約</a> ·
+      <a href="legal_ja.html#content">コンテンツと著作権</a>
+      <div style="margin-top:8px">© 2026 Ye Wei. 各種教育機関・出版社とは関係ありません。</div>
+    </footer>
+  </div>
+
+  <!-- ═════════════════════════════ 中文 ═════════════════════════════ -->
+  <div class="lang" data-lang="zh">
+<section><h2>學習工具與備份</h2><p>從學習 → 練習，可使用學習計畫、聽力連播、拼寫、單詞配對、跟讀、程度自測與分級測驗。我的 → 學習統計提供 7／14／30／90 天統計與分享，另有每日單詞小組件。</p><p>從我的 → 設定 → 備份與還原，可將進度與自建詞庫匯出為私人JSON檔案。匯入前會驗證，替換前會要求確認，請妥善保管。重置進度不會刪除自建詞庫；請在我的詞庫另行刪除。</p><p>麥克風只用於錄音，錄音會在離開頁面時刪除。辨識文字匹配度並非發音評分。錄音只保留在本機。</p></section>
+
+    <section>
+      <h2>關於本 App</h2>
+      <p>「Hangul &amp; Words」是一款零基礎韓語入門 App。內容包括韓文字母、拼字原理、音變規則、
+      13 個主題共 296 個課程單詞、5,000 句常用語，釋義與講解提供繁體中文、日文和英文。</p>
+      <ul>
+        <li><strong>可離線使用。</strong> 課程與發音音頻全部內置在 App 內，無需下載或聯網。</li>
+        <li><strong>無需賬號。</strong> 不用註冊登錄，學習數據不上傳。</li>
+        <li><strong>無廣告、無追蹤。</strong> 未集成任何廣告 SDK 或統計分析工具。</li>
+        <li><strong>三語界面。</strong> 繁體中文 / 日文 / 英文，隨時在「我的 → 語言」中切換。</li>
+        <li><strong>間隔復習。</strong> 學過的詞會按 1、2、4、7、15、30 天的間隔回到復習隊列。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>常見問題</h2>
+
+      <details>
+        <summary>之前買過 Pro，怎麼恢復？</summary>
+        <p>打開「我的 → 設定 → 還原購買」，用當初購買時的同一個 Apple ID 登錄即可，免費且即時生效。
+        如果沒有反應，請確認網絡正常，並檢查 Apple ID 所在地區與購買的商店是否一致。</p>
+      </details>
+
+      <details>
+        <summary>沒有聲音。</summary>
+        <p>內建的發音音訊可離線播放。新增詞句和拼字器組合出的音節使用裝置的韓語系統語音。</p>
+        <ul>
+          <li>關閉機身側面的靜音開關，並用音量鍵調大音量。</li>
+          <li><em>設置 → 聲音與觸感</em> 中確認媒體音量未被靜音。</li>
+          <li>斷開藍牙耳機（音頻可能被送到未佩戴的設備）。</li>
+          <li>若只有新增詞句或音節拼裝器沒有聲音，請在裝置的輔助使用設定中下載韓語語音。</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>免費範圍和 Pro 有什麼區別？</summary>
+        <p>免費內容包含 40 個韓文字母、音變規則、音節拼裝器、前兩個主題詞表、問候與點餐需求兩組常用句，以及 200 個分級詞。購買 Pro 可一次解鎖全部課程、單詞與常用句。確認購買前會顯示當地價格。</p>
+      </details>
+
+      <details>
+        <summary>不買也能用嗎？</summary>
+        <p>可以。免費部分是完整的韓文認讀入門，沒有時間限制，也沒有試用倒計時或課前彈窗。</p>
+      </details>
+
+      <details>
+        <summary>怎麼改界面語言？</summary>
+        <p>「我的 → 語言」，選擇中文、日文或英文，立即生效，無需重啓。首次啓動時會跟隨系統語言。</p>
+      </details>
+
+      <details>
+        <summary>學習記錄會備份嗎？</summary>
+        <p>記錄保存在本機 App 的存儲中，會包含在 iCloud 或 Finder 的設備備份里。我們沒有服務器，
+        無法代為恢復。刪除 App 時，隨 App 保存的記錄也會被刪除。</p>
+      </details>
+
+      <details>
+        <summary>怎麼清空全部數據？</summary>
+        <p>「我的 → 重置學習記錄」，會清除本機的課程進度、XP、連擊、收藏單詞與設置。
+        不影響 Pro 購買，購買權益與 Apple ID 綁定。</p>
+      </details>
+
+      <details>
+        <summary>內容從哪來？</summary>
+        <p>所有單詞、例句、短語與語法說明均為本 App 專門撰寫，未轉載詞典釋義、教材練習、字幕或歌詞。
+        圖標使用 Apple SF Symbols，App 圖標為自繪。發音音頻是神經網絡語音合成的合成音，隨 App 打包，
+        不是真人錄音，因此不涉及聲音權或錄音版權。詳見<a href="legal_zh.html#content">內容與版權聲明</a>。</p>
+      </details>
+
+      <details>
+        <summary>發現錯誤，或希望增加某個詞。</summary>
+        <p>請發郵件告訴我們所在的頁面，並盡量附上出錯的單詞或句子。糾錯反饋會優先處理，
+        內容更新隨常規版本發佈。</p>
+      </details>
+    </section>
+
+    <section>
+      <h2>聯繫我們</h2>
+      <p>郵箱：<a href="mailto:2603462296@qq.com">2603462296@qq.com</a>，通常在兩個工作日內回復。
+      為便於排查，請附上 App 版本（「我的 → 關於」）、iOS 版本與設備型號。</p>
+      <div class="note">我們規模很小，不提供電話支持。郵件是唯一渠道，會有真人閱讀並回復。</div>
+    </section>
+
+    <footer>
+      <a href="legal_zh.html">隱私政策與使用條款</a> ·
+      <a href="legal_zh.html#content">內容與版權聲明</a>
+      <div style="margin-top:8px">© 2026 Ye Wei。與任何教育機構或出版社無關聯。</div>
+    </footer>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.langs button');
+  var panes = document.querySelectorAll('.lang');
+  var titles = { en: 'Learn Korean from zero · Support', ja: 'ゼロから学ぶ韓国語 · サポート', zh: '零基础韩语入门 · 支持' };
+  function show(code, remember) {
+    panes.forEach(function (p) { p.classList.toggle('on', p.dataset.lang === code); });
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === code)); });
+    document.documentElement.lang = code === 'zh' ? 'zh-Hant' : code;
+    document.getElementById('tagline').textContent = titles[code] || titles.en;
+    if (remember) { try { localStorage.setItem('lang', code); } catch (e) {} }
+  }
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { show(b.dataset.set, true); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('lang'); } catch (e) {}
+  var guess = saved;
+  if (!guess) {
+    var n = (navigator.language || 'en').toLowerCase();
+    guess = n.indexOf('ja') === 0 ? 'ja' : (n.indexOf('zh') === 0 ? 'zh' : 'en');
+  }
+  if (guess !== 'en') { show(guess, false); }
+})();
+</script>
+</body>
+</html>
